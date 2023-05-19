@@ -12,14 +12,13 @@ on:
 jobs:
   aarch64:
     # The host should always be Linux
-    name: Ubuntu arm64
-  example_matrix:
+    runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4 # Sets the limit of jobs to run concurrently
       matrix:
-        os: [ubuntu-latest, ubuntu-latest
-        version: [10, 12, 14]
-    runs-on: ${{ matrix.os }}
+        node-version: [8.x, 10.x, 12.x, 13.x]
+        mongodb-version: [4.0, 4.2]
+    name: Ubuntu arm64
+
     steps:
       - uses: actions/checkout@v3
 
